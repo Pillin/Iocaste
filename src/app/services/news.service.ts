@@ -17,8 +17,8 @@ export class NewsService {
   }
   getNews(page: number) {
     return this.http.get(`${this.baseUrl}/news?page=${page}`).pipe(
-      map(({ news }) => {
-        return news;
+      map((data: any) => {
+        return data.news;
       }),
       catchError(this.handleError)
     );

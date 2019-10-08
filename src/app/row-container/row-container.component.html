@@ -11,7 +11,7 @@
         <span mat-line>- {{ newInformation.author }}- </span>
       </div>
       <div class="content-row">
-        <span mat-line>{{ newInformation.createdAt }}</span>
+        <span mat-line>{{ newInformation.createdAt | dateCloser }}</span>
         <mat-icon aria-hidden="false" aria-label="delete news">delete</mat-icon>
       </div>
     </mat-list-item>
