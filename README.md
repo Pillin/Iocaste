@@ -1,6 +1,27 @@
 # Iocaste
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+Web interface for view custom news
+
+## Getting Started
+
+Starting with the project it is necessary to have the following libraries.
+
+### Prerequisites
+
+```
+node: v11.6.0
+npm: 6.5.0-next.0
+docker: 18.09.7
+docker-compose: 1.17.1
+```
+
+### Installing
+
+For installation, follow the step below
+
+```
+>> npm install
+```
 
 ## Development server
 
