@@ -1,18 +1,22 @@
 <mat-list>
   <ng-container *ngFor="let newInformation of news">
-    <mat-list-item
-      *ngIf="newInformation.storyTitle || newInformation.title"
-      (click)="save()"
-    >
+    <mat-list-item *ngIf="newInformation.storyTitle || newInformation.title">
       <div class="content-row">
-        <h4 mat-line>
+        <h4 mat-line (click)="goTo(newInformation.storyUrl)">
           {{ newInformation.storyTitle || newInformation.title }}
         </h4>
-        <span mat-line>- {{ newInformation.author }}- </span>
+        <span mat-line (click)="goTo(newInformation.storyUrl)"
+          >- {{ newInformation.author }} -
+        </span>
       </div>
       <div class="content-row">
         <span mat-line>{{ newInformation.createdAt | dateCloser }}</span>
-        <mat-icon aria-hidden="false" aria-label="delete news">delete</mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="delete news"
+          (click)="delete(newInformation._id)"
+          >delete</mat-icon
+        >
       </div>
     </mat-list-item>
   </ng-container>

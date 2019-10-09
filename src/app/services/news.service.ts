@@ -8,7 +8,7 @@ import { News } from "../interfaces/new.interface";
   providedIn: "root"
 })
 export class NewsService {
-  baseUrl = "http://localhost:8000/api";
+  baseUrl = "http://localhost:3001/api";
   constructor(private http: HttpClient) {}
 
   private handleError(res: HttpErrorResponse | any) {
@@ -24,11 +24,11 @@ export class NewsService {
     );
   }
 
-  delete(news: News) {
+  delete(newsId: string) {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
 
-    const url = `${this.baseUrl}/news/${news.id}`;
+    const url = `${this.baseUrl}/news/${newsId}`;
 
     return this.http.delete<News>(url).pipe(catchError(this.handleError));
   }

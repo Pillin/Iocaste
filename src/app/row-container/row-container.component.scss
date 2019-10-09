@@ -1,8 +1,12 @@
+$break-small: 768px;
+
 .mat-list {
   padding: 10px 20px 10px 20px;
-  > .mat-list-item {
+  > .mat-list-item.mat-list-item.mat-list-item {
     border-bottom: 1px solid #ccc;
     background-color: #fff;
+    height: auto;
+
     &:hover {
       background-color: #fafafa;
       cursor: url(./../../assets/icons/hand-cursor.svg), pointer;
@@ -22,9 +26,11 @@
 .content-row {
   display: flex;
   flex-direction: row;
-  > h4.mat-line {
+  flex-wrap: wrap;
+  > h4.mat-line.mat-line {
     color: #333 !important;
     font-size: 13pt;
+    white-space: pre-line;
   }
   > span {
     align-self: center;
@@ -33,5 +39,21 @@
   }
   mat-icon {
     color: transparent;
+    @media screen and (max-width: $break-small) {
+      color: #333;
+    }
+  }
+}
+
+.mat-list-item .mat-list-item-content > .content-row:last-child {
+  color: #333;
+  @media screen and (max-width: $break-small) {
+    flex-wrap: nowrap;
+    color: #333;
+  }
+
+  > .mat-line {
+    font-weight: bold;
+    color: #333;
   }
 }

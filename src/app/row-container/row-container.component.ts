@@ -20,5 +20,13 @@ export class RowContainerComponent implements OnInit {
     this.newsService.getNews(0).subscribe((news: any) => (this.news = news));
   }
 
-  save() {}
+  goTo(storyUrl: string) {
+    window.open(storyUrl, "_blank");
+  }
+
+  delete(newsId: string) {
+    this.newsService.delete(newsId).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
 }
