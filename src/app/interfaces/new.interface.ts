@@ -1,5 +1,5 @@
 export interface News {
-  id: string;
+  _id: string;
   title: String;
   storyTitle: String;
 }

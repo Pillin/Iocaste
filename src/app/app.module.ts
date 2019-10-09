@@ -4,6 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { DateCloserPipe } from "./pipes/date-closer-format.pipe";
 import { AppComponent } from "./app.component";
 import { BannerComponent } from "./banner/banner.component";
@@ -21,6 +22,7 @@ import { RowContainerComponent } from "./row-container/row-container.component";
     HttpClientModule,
     MatIconModule,
     MatListModule,
+    InfiniteScrollModule,
     BrowserAnimationsModule
   ],
   providers: [],

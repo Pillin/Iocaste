@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
   <ng-container *ngFor="let newInformation of news">
     <mat-list-item *ngIf="newInformation.storyTitle || newInformation.title">
       <div class="content-row">

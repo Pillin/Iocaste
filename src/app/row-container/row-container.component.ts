@@ -13,11 +13,18 @@ export interface RowNew {
   encapsulation: ViewEncapsulation.None
 })
 export class RowContainerComponent implements OnInit {
-  constructor(private newsService: NewsService) {}
-
+  actualPage: number;
+  finishPage: number;
   news: News[];
+  constructor(private newsService: NewsService) {
+    this.actualPage = 0;
+    this.finishPage = 5;
+  }
+
   ngOnInit() {
-    this.newsService.getNews(0).subscribe((news: any) => (this.news = news));
+    this.newsService
+      .getNews(this.actualPage)
+      .subscribe((news: any) => (this.news = news));
   }
 
   goTo(storyUrl: string) {
@@ -26,7 +33,18 @@ export class RowContainerComponent implements OnInit {
 
   delete(newsId: string) {
     this.newsService.delete(newsId).subscribe(() => {
-      this.ngOnInit();
+      this.news = this.news.filter(elem => elem._id != newsId);
     });
+  }
+
+  onScroll() {
+    if (this.actualPage < this.finishPage) {
+      this.actualPage++;
+      this.newsService.getNews(this.actualPage).subscribe((news: any) => {
+        Array.prototype.push.apply(this.news, news);
+      });
+    } else {
+      console.log("No more lines. Finish page!");
+    }
   }
 }
